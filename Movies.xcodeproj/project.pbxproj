@@ -7,8 +7,12 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		4C21D54C1F8D4AA400C61E54 /* MovieGridCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C21D54B1F8D4AA400C61E54 /* MovieGridCell.swift */; };
+		4C21D54E1F8D4BE200C61E54 /* MoviesAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C21D54D1F8D4BE200C61E54 /* MoviesAPI.swift */; };
+		4C21D5501F8D4D3500C61E54 /* CoreDataStack.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C21D54F1F8D4D3500C61E54 /* CoreDataStack.swift */; };
+		4C21D5521F8D50AC00C61E54 /* Movie+TMDB.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C21D5511F8D50AC00C61E54 /* Movie+TMDB.swift */; };
 		4CAA032E1F8CB91F0083141F /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CAA032D1F8CB91F0083141F /* AppDelegate.swift */; };
-		4CAA03301F8CB91F0083141F /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CAA032F1F8CB91F0083141F /* ViewController.swift */; };
+		4CAA03301F8CB91F0083141F /* MoviesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CAA032F1F8CB91F0083141F /* MoviesViewController.swift */; };
 		4CAA03331F8CB91F0083141F /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4CAA03311F8CB91F0083141F /* Main.storyboard */; };
 		4CAA03361F8CB91F0083141F /* Movies.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 4CAA03341F8CB91F0083141F /* Movies.xcdatamodeld */; };
 		4CAA03381F8CB91F0083141F /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4CAA03371F8CB91F0083141F /* Assets.xcassets */; };
@@ -18,9 +22,13 @@
 
 /* Begin PBXFileReference section */
 		1644A040230D2443458F6D2F /* Pods-Movies.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Movies.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Movies/Pods-Movies.debug.xcconfig"; sourceTree = "<group>"; };
+		4C21D54B1F8D4AA400C61E54 /* MovieGridCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieGridCell.swift; sourceTree = "<group>"; };
+		4C21D54D1F8D4BE200C61E54 /* MoviesAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoviesAPI.swift; sourceTree = "<group>"; };
+		4C21D54F1F8D4D3500C61E54 /* CoreDataStack.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = CoreDataStack.swift; path = "/Users/maria/dev/Udacity Projects/Movies/Movies/CoreDataStack.swift"; sourceTree = "<absolute>"; };
+		4C21D5511F8D50AC00C61E54 /* Movie+TMDB.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = "Movie+TMDB.swift"; path = "/Users/maria/dev/Udacity Projects/Movies/Movies/Movie+TMDB.swift"; sourceTree = "<absolute>"; };
 		4CAA032A1F8CB91F0083141F /* Movies.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Movies.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		4CAA032D1F8CB91F0083141F /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		4CAA032F1F8CB91F0083141F /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		4CAA032F1F8CB91F0083141F /* MoviesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoviesViewController.swift; sourceTree = "<group>"; };
 		4CAA03321F8CB91F0083141F /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		4CAA03351F8CB91F0083141F /* Movies.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Movies.xcdatamodel; sourceTree = "<group>"; };
 		4CAA03371F8CB91F0083141F /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -63,9 +71,13 @@
 		4CAA032C1F8CB91F0083141F /* Movies */ = {
 			isa = PBXGroup;
 			children = (
+				4C21D5511F8D50AC00C61E54 /* Movie+TMDB.swift */,
+				4C21D54F1F8D4D3500C61E54 /* CoreDataStack.swift */,
 				4CAA032D1F8CB91F0083141F /* AppDelegate.swift */,
-				4CAA032F1F8CB91F0083141F /* ViewController.swift */,
+				4CAA032F1F8CB91F0083141F /* MoviesViewController.swift */,
 				4CAA03311F8CB91F0083141F /* Main.storyboard */,
+				4C21D54D1F8D4BE200C61E54 /* MoviesAPI.swift */,
+				4C21D54B1F8D4AA400C61E54 /* MovieGridCell.swift */,
 				4CAA03371F8CB91F0083141F /* Assets.xcassets */,
 				4CAA03391F8CB91F0083141F /* LaunchScreen.storyboard */,
 				4CAA033C1F8CB91F0083141F /* Info.plist */,
@@ -220,7 +232,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				4CAA03301F8CB91F0083141F /* ViewController.swift in Sources */,
+				4C21D5521F8D50AC00C61E54 /* Movie+TMDB.swift in Sources */,
+				4C21D54C1F8D4AA400C61E54 /* MovieGridCell.swift in Sources */,
+				4C21D54E1F8D4BE200C61E54 /* MoviesAPI.swift in Sources */,
+				4CAA03301F8CB91F0083141F /* MoviesViewController.swift in Sources */,
+				4C21D5501F8D4D3500C61E54 /* CoreDataStack.swift in Sources */,
 				4CAA03361F8CB91F0083141F /* Movies.xcdatamodeld in Sources */,
 				4CAA032E1F8CB91F0083141F /* AppDelegate.swift in Sources */,
 			);
