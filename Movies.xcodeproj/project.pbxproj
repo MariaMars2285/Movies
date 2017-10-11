@@ -13,6 +13,8 @@
 		4C21D5521F8D50AC00C61E54 /* Movie+TMDB.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C21D5511F8D50AC00C61E54 /* Movie+TMDB.swift */; };
 		4C37DC891F8E9DC7001B0CAF /* BaseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C37DC881F8E9DC7001B0CAF /* BaseViewController.swift */; };
 		4C37DC8B1F8EA51A001B0CAF /* MoviesManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C37DC8A1F8EA51A001B0CAF /* MoviesManager.swift */; };
+		4C37DC8D1F8EAF98001B0CAF /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C37DC8C1F8EAF98001B0CAF /* SettingsViewController.swift */; };
+		4C37DC8F1F8EAFD5001B0CAF /* GridSize.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C37DC8E1F8EAFD5001B0CAF /* GridSize.swift */; };
 		4CAA032E1F8CB91F0083141F /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CAA032D1F8CB91F0083141F /* AppDelegate.swift */; };
 		4CAA03301F8CB91F0083141F /* MoviesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CAA032F1F8CB91F0083141F /* MoviesViewController.swift */; };
 		4CAA03331F8CB91F0083141F /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4CAA03311F8CB91F0083141F /* Main.storyboard */; };
@@ -31,6 +33,8 @@
 		4C21D5511F8D50AC00C61E54 /* Movie+TMDB.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = "Movie+TMDB.swift"; path = "/Users/maria/dev/Udacity Projects/Movies/Movies/Movie+TMDB.swift"; sourceTree = "<absolute>"; };
 		4C37DC881F8E9DC7001B0CAF /* BaseViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseViewController.swift; sourceTree = "<group>"; };
 		4C37DC8A1F8EA51A001B0CAF /* MoviesManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoviesManager.swift; sourceTree = "<group>"; };
+		4C37DC8C1F8EAF98001B0CAF /* SettingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
+		4C37DC8E1F8EAFD5001B0CAF /* GridSize.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GridSize.swift; sourceTree = "<group>"; };
 		4CAA032A1F8CB91F0083141F /* Movies.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Movies.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		4CAA032D1F8CB91F0083141F /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		4CAA032F1F8CB91F0083141F /* MoviesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoviesViewController.swift; sourceTree = "<group>"; };
@@ -81,8 +85,10 @@
 				4C21D54F1F8D4D3500C61E54 /* CoreDataStack.swift */,
 				4CAA032D1F8CB91F0083141F /* AppDelegate.swift */,
 				4CAA032F1F8CB91F0083141F /* MoviesViewController.swift */,
+				4C37DC8E1F8EAFD5001B0CAF /* GridSize.swift */,
 				4C37DC8A1F8EA51A001B0CAF /* MoviesManager.swift */,
 				4CAA03311F8CB91F0083141F /* Main.storyboard */,
+				4C37DC8C1F8EAF98001B0CAF /* SettingsViewController.swift */,
 				4CF603FC1F8E85BB0092B8E5 /* Constants.swift */,
 				4C21D54D1F8D4BE200C61E54 /* MoviesAPI.swift */,
 				4C37DC881F8E9DC7001B0CAF /* BaseViewController.swift */,
@@ -245,9 +251,11 @@
 			files = (
 				4C37DC8B1F8EA51A001B0CAF /* MoviesManager.swift in Sources */,
 				4C21D5521F8D50AC00C61E54 /* Movie+TMDB.swift in Sources */,
+				4C37DC8D1F8EAF98001B0CAF /* SettingsViewController.swift in Sources */,
 				4C21D54C1F8D4AA400C61E54 /* MovieGridCell.swift in Sources */,
 				4C21D54E1F8D4BE200C61E54 /* MoviesAPI.swift in Sources */,
 				4CAA03301F8CB91F0083141F /* MoviesViewController.swift in Sources */,
+				4C37DC8F1F8EAFD5001B0CAF /* GridSize.swift in Sources */,
 				4C21D5501F8D4D3500C61E54 /* CoreDataStack.swift in Sources */,
 				4C37DC891F8E9DC7001B0CAF /* BaseViewController.swift in Sources */,
 				4CAA03361F8CB91F0083141F /* Movies.xcdatamodeld in Sources */,

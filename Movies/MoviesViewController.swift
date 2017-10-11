@@ -9,17 +9,18 @@
 import UIKit
 import CoreData
 
-enum GridSize {
-    case small
-    case large
-}
-
 class MoviesViewController: BaseViewController {
+    
+    var gridSize: GridSize {
+        get {
+            let value = UserDefaults.standard.integer(forKey: "GridSize")
+            return GridSize(rawValue: value)!
+        }
+    }
 
     @IBOutlet weak var collectionView: UICollectionView!
     var refresher:UIRefreshControl!
     private var pageLoaded = 0
-    var gridSize = GridSize.large
     var insertedIndexPaths: [IndexPath]!
     var deletedIndexPaths : [IndexPath]!
     var updatedIndexPaths : [IndexPath]!
@@ -46,6 +47,11 @@ class MoviesViewController: BaseViewController {
             print("Error")
         }
         fetchMovies(page: pageLoaded + 1)
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        collectionView.reloadData()
     }
     
     override func didRotate(from fromInterfaceOrientation: UIInterfaceOrientation) {
