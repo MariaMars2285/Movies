@@ -1,0 +1,60 @@
+//
+//  Constants.swift
+//  Movies
+//
+//  Created by Maria  on 10/11/17.
+//  Copyright © 2017 Maria . All rights reserved.
+//
+
+
+import Foundation
+
+// MARK: - Constants
+
+struct Constants {
+    
+    // MARK: TMDB
+    struct TMDB {
+        static let APIScheme = "https"
+        static let APIHost = "api.themoviedb.org"
+        static let BaseAPIPath = "/3"
+    }
+    
+    // MARK: TMDB Parameter Keys
+    struct TMDBParameterKeys {
+        static let APIKey = "api_key"
+        static let Page = "page"
+        static let Language = "language"
+    }
+    
+    // MARK: TMDB Parameter Values
+    struct TMDBParameterValues {
+        static let APIKey = "YOUR_API_KEY_HERE"
+        static let Language = "en-US"
+    }
+    
+    // MARK: TMDB Response Keys
+    struct TMDBResponseKeys {
+        static let Results = "results"
+        static let ID = "id"
+        static let Title = "title"
+        static let Poster = "poster_path"
+        static let ReleaseDate = "release_date"
+        static let Language = "original_language"
+    }
+    
+    // MARK: TMDB Response Values
+    struct TMDBResponseValues {
+    }
+    
+    // MARK: Entity Names
+    struct EntityNames {
+        static let Movie = "Movie"
+    }
+    
+    // MARK: Cell Identifiers
+    struct CellIdentifiers {
+        static let MovieGridCell = "MovieGridCell"
+    }
+}
+

@@ -7,31 +7,65 @@
 //
 
 import UIKit
+import CoreData
 
 enum GridSize {
     case small
     case large
 }
 
-class MoviesViewController: UIViewController {
+class MoviesViewController: BaseViewController {
 
     @IBOutlet weak var collectionView: UICollectionView!
-    
-    let moviesAPI = MoviesAPI()
-    var movies = [Movie]()
+    var refresher:UIRefreshControl!
+    private var pageLoaded = 0
     var gridSize = GridSize.large
+    var insertedIndexPaths: [IndexPath]!
+    var deletedIndexPaths : [IndexPath]!
+    var updatedIndexPaths : [IndexPath]!
+    var moviesManager = MoviesManager()
+    
+    lazy var fetchedResultsController: NSFetchedResultsController = { () -> NSFetchedResultsController<Movie> in
+        let fetchRequest = NSFetchRequest<Movie>(entityName: Constants.EntityNames.Movie)
+        fetchRequest.sortDescriptors = []
+        let fetchedResultsController = NSFetchedResultsController(fetchRequest: fetchRequest, managedObjectContext: context, sectionNameKeyPath: nil, cacheName: nil)
+        fetchedResultsController.delegate = self
+        return fetchedResultsController
+    }()
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        moviesAPI.fetchMovies { (movies, error) in
-            // TODO: Handle Error Conditions.
-            self.movies = movies!
+        self.refresher = UIRefreshControl()
+        self.collectionView!.alwaysBounceVertical = true
+        self.refresher.tintColor = UIColor.red
+        self.refresher.addTarget(self, action: #selector(fetchFirstPage), for: .valueChanged)
+        self.collectionView.addSubview(refresher)
+        do {
+            try fetchedResultsController.performFetch()
+        } catch {
+            print("Error")
         }
-        // Do any additional setup after loading the view, typically from a nib.
+        fetchMovies(page: pageLoaded + 1)
     }
     
     override func didRotate(from fromInterfaceOrientation: UIInterfaceOrientation) {
         self.collectionView.reloadData()
+    }
+    
+    @objc func fetchFirstPage() {
+        self.refresher.beginRefreshing()
+        fetchMovies(page: 1)
+    }
+    
+    func fetchMovies(page: Int) {
+        moviesManager.fetchMovies(page: page) { (movies, error) in
+            // TODO: Handle Error Conditions.
+            self.refresher.endRefreshing()
+            guard error != nil else {
+                //TODO: Show Alert
+                return
+            }
+        }
     }
 
 }
@@ -39,13 +73,12 @@ class MoviesViewController: UIViewController {
 extension MoviesViewController: UICollectionViewDataSource {
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        
-        return movies.count
+        return fetchedResultsController.fetchedObjects?.count ?? 0
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "MovieGridCell", for: indexPath) as! MovieGridCell
-        let movie = movies[indexPath.item]
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: Constants.CellIdentifiers.MovieGridCell, for: indexPath) as! MovieGridCell
+        let movie = fetchedResultsController.object(at: indexPath)
         cell.titleLabel.text = movie.title
         return cell
     }
