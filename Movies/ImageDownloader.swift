@@ -8,6 +8,7 @@
 
 import Foundation
 import UIKit
+import Alamofire
 
 class ImageDownloader {
     
@@ -17,31 +18,40 @@ class ImageDownloader {
         }
     }
     
+    func downloadImage(forURL url: URL, completion: @escaping (Data?, Error?) -> Void) {
+        Alamofire.request(url).responseData { (response) in
+            guard response.error == nil else {
+                completion(nil, response.error)
+                return
+            }
+            guard let data = response.data else {
+                completion(nil, nil)
+                return
+            }
+            completion(data, nil)
+            
+        }
+    }
+    
     func downloadThumbnail(forVideo video: Video) {
         if let thumbnailURL = video.thumbnailURL() {
-            let downloadQueue = DispatchQueue(label: "download", attributes: [])
-            
-            downloadQueue.async { () -> Void in
-                let imgData = try? Data(contentsOf: thumbnailURL)
-                DispatchQueue.main.async(execute: { () -> Void in
+            downloadImage(forURL: thumbnailURL, completion: { (data, error) in
+                if let imgData = data {
                     video.thumbnail = imgData
                     self.stack.save()
-                })
-            }
+                }
+            })
         }
     }
     
     func downloadPoster(forMovie movie: Movie) {
         if let posterURL = movie.posterURL() {
-            let downloadQueue = DispatchQueue(label: "download", attributes: [])
-            
-            downloadQueue.async { () -> Void in
-                let imgData = try? Data(contentsOf: posterURL)
-                DispatchQueue.main.async(execute: { () -> Void in
+            downloadImage(forURL: posterURL, completion: { (data, error) in
+                if let imgData = data {
                     movie.posterData = imgData
                     self.stack.save()
-                })
-            }
+                }
+            })
         }
     }
 }
