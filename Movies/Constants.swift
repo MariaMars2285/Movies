@@ -18,8 +18,8 @@ struct Constants {
         static let APIScheme = "https"
         static let APIHost = "api.themoviedb.org"
         static let BaseAPIPath = "/3"
-        static let LargeImageURL = "https://image.tmdb.org/t/p/w1000/"
-        static let SmallImageURL = "https://image.tmdb.org/t/p/w300/"
+        static let LargeImageURL = "https://image.tmdb.org/t/p/w1000"
+        static let SmallImageURL = "https://image.tmdb.org/t/p/w300"
     }
     
     // MARK: TMDB Parameter Keys

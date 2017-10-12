@@ -22,6 +22,7 @@ class MoviesViewController: CollectionBaseViewController {
     private var pageLoaded = 0
     
     var moviesManager = MoviesManager()
+    var imageDownloader = ImageDownloader()
     
     lazy var fetchedResultsController: NSFetchedResultsController = { () -> NSFetchedResultsController<Movie> in
         let fetchRequest = NSFetchRequest<Movie>(entityName: Constants.EntityNames.Movie)
@@ -93,7 +94,14 @@ extension MoviesViewController: UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: Constants.CellIdentifiers.MovieGridCell, for: indexPath) as! MovieGridCell
         let movie = fetchedResultsController.object(at: indexPath)
-        cell.titleLabel.text = movie.title
+        if let data = movie.posterData {
+            cell.indicatorView.stopAnimating()
+            cell.imageView.image = UIImage(data: data)
+        } else {
+            cell.indicatorView.startAnimating()
+            imageDownloader.downloadPoster(forMovie: movie)
+        }
+        print("poster \(movie.poster)")
         return cell
     }
 }
@@ -101,28 +109,25 @@ extension MoviesViewController: UICollectionViewDataSource {
 extension MoviesViewController: UICollectionViewDelegateFlowLayout {
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
+        let spacing: CGFloat = 5.0
         if UIDevice.current.orientation == .landscapeLeft || UIDevice.current.orientation == .landscapeRight {
             if gridSize == .small {
-                let width = collectionView.bounds.width / 4 - 1
-                return CGSize(width: width, height: width)
+                let width = (collectionView.bounds.width - 5 * spacing) / 4
+                return CGSize(width: width, height: width * 3.0 / 2)
             } else {
-                let width = collectionView.bounds.width / 3 - 1
-                return CGSize(width: width, height: width)
+                let width = (collectionView.bounds.width - 4 * spacing) / 3
+                return CGSize(width: width, height: width * 3.0 / 2)
             }
         } else {
             if gridSize == .small {
-                let width = collectionView.bounds.width / 3 - 1
-                return CGSize(width: width, height: width)
+                let width = (collectionView.bounds.width - 4 * spacing) / 3
+                return CGSize(width: width, height: width * 3.0 / 2)
             } else {
-                let width = collectionView.bounds.width / 2 - 1
-                return CGSize(width: width, height: width)
+                let width = (collectionView.bounds.width - 3 * spacing) / 2
+                return CGSize(width: width, height: width * 3.0 / 2)
             }
         }
        
-    }
-    
-    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, insetForSectionAt section: Int) -> UIEdgeInsets {
-        return UIEdgeInsets(top: 0, left: 0, bottom: 0, right: 0)
     }
     
 }

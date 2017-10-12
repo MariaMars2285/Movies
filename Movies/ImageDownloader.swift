@@ -29,6 +29,19 @@ class ImageDownloader {
                 })
             }
         }
-        
+    }
+    
+    func downloadPoster(forMovie movie: Movie) {
+        if let posterURL = movie.posterURL() {
+            let downloadQueue = DispatchQueue(label: "download", attributes: [])
+            
+            downloadQueue.async { () -> Void in
+                let imgData = try? Data(contentsOf: posterURL)
+                DispatchQueue.main.async(execute: { () -> Void in
+                    movie.posterData = imgData
+                    self.stack.save()
+                })
+            }
+        }
     }
 }

@@ -24,4 +24,11 @@ extension Movie {
             fatalError("No Entity")
         }
     }
+    
+    func posterURL() -> URL? {
+        if let path = self.poster {
+            return URL(string: Constants.TMDB.SmallImageURL + path)
+        }
+        return nil
+    }
 }
