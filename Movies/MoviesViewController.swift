@@ -45,6 +45,9 @@ class MoviesViewController: CollectionBaseViewController {
         } catch {
             print("Error")
         }
+        if fetchedResultsController.fetchedObjects == nil {
+            self.refresher.beginRefreshing()
+        }
         fetchMovies(page: pageLoaded + 1)
     }
     
@@ -64,10 +67,9 @@ class MoviesViewController: CollectionBaseViewController {
     
     func fetchMovies(page: Int) {
         moviesManager.fetchMovies(page: page) { (movies, error) in
-            // TODO: Handle Error Conditions.
             self.refresher.endRefreshing()
-            guard error != nil else {
-                //TODO: Show Alert
+            guard error == nil else {
+                self.showErrorAlert(title: "Error", message: "Unable to fetch Movies Data!")
                 return
             }
         }

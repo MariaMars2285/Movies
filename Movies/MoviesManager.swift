@@ -37,7 +37,6 @@ class MoviesManager {
             }
             
             if page == 1 {
-                // TODO: Delete all movies from Core Data.
                 let fetchRequest = NSFetchRequest<Movie>(entityName: Constants.EntityNames.Movie)
                 do {
                     let results = try self.context.fetch(fetchRequest)

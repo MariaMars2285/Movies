@@ -25,7 +25,10 @@ class MoviesAPI {
         print(url.absoluteString)
         
         Alamofire.request(url.absoluteString).response { response in
-            // TODO: Handle Errors
+            guard response.error == nil else {
+                completion(nil, response.error)
+                return
+            }
             if let data = response.data {
                 let json = JSON(data: data)
                 if let moviesJSON = json[Constants.TMDBResponseKeys.Results].array {
@@ -45,7 +48,10 @@ class MoviesAPI {
         print(url.absoluteString)
         
         Alamofire.request(url.absoluteString).response { response in
-            // TODO: Handle Errors
+            guard response.error == nil else {
+                completion(nil, response.error)
+                return
+            }
             if let data = response.data {
                 let json = JSON(data: data)
                 completion(json, nil)
@@ -63,7 +69,10 @@ class MoviesAPI {
         print(url.absoluteString)
         
         Alamofire.request(url.absoluteString).response { response in
-            // TODO: Handle Errors
+            guard response.error == nil else {
+                completion(nil, response.error)
+                return
+            }
             if let data = response.data {
                 let json = JSON(data: data)
                 if let videosJSON = json[Constants.TMDBResponseKeys.Results].array {
