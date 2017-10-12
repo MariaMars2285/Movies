@@ -34,6 +34,7 @@ class MoviesViewController: CollectionBaseViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        setupNavigationBar()
         self.refresher = UIRefreshControl()
         self.collectionView!.alwaysBounceVertical = true
         self.refresher.tintColor = UIColor.red
