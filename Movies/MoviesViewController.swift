@@ -9,7 +9,7 @@
 import UIKit
 import CoreData
 
-class MoviesViewController: BaseViewController {
+class MoviesViewController: CollectionBaseViewController {
     
     var gridSize: GridSize {
         get {
@@ -18,13 +18,9 @@ class MoviesViewController: BaseViewController {
         }
     }
 
-    @IBOutlet weak var collectionView: UICollectionView!
-    
     var refresher:UIRefreshControl!
     private var pageLoaded = 0
-    var insertedIndexPaths: [IndexPath]!
-    var deletedIndexPaths : [IndexPath]!
-    var updatedIndexPaths : [IndexPath]!
+    
     var moviesManager = MoviesManager()
     
     lazy var fetchedResultsController: NSFetchedResultsController = { () -> NSFetchedResultsController<Movie> in

@@ -22,4 +22,13 @@ class BaseViewController: UIViewController {
             return CoreDataStack.shared
         }
     }
+    
+    func showErrorAlert(title: String, message: String) {
+        
+        let alert = UIAlertController(title: title, message: message, preferredStyle: .alert)
+        let cancelAction = UIAlertAction(title: "Cancel", style: .cancel) { (action) in
+        }
+        alert.addAction(cancelAction)
+        present(alert, animated: true, completion: nil)
+    }
 }

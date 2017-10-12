@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		4C030E561F8FC73400788DAC /* CollectionBaseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C030E551F8FC73400788DAC /* CollectionBaseViewController.swift */; };
+		4C030E581F8FCC2200788DAC /* VideoGridCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C030E571F8FCC2200788DAC /* VideoGridCell.swift */; };
 		4C21D54C1F8D4AA400C61E54 /* MovieGridCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C21D54B1F8D4AA400C61E54 /* MovieGridCell.swift */; };
 		4C21D54E1F8D4BE200C61E54 /* MoviesAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C21D54D1F8D4BE200C61E54 /* MoviesAPI.swift */; };
 		4C21D5501F8D4D3500C61E54 /* CoreDataStack.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C21D54F1F8D4D3500C61E54 /* CoreDataStack.swift */; };
@@ -15,6 +17,8 @@
 		4C37DC8B1F8EA51A001B0CAF /* MoviesManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C37DC8A1F8EA51A001B0CAF /* MoviesManager.swift */; };
 		4C37DC8D1F8EAF98001B0CAF /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C37DC8C1F8EAF98001B0CAF /* SettingsViewController.swift */; };
 		4C37DC8F1F8EAFD5001B0CAF /* GridSize.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C37DC8E1F8EAFD5001B0CAF /* GridSize.swift */; };
+		4C3873C81F8FD342000505F6 /* ImageDownloader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C3873C71F8FD342000505F6 /* ImageDownloader.swift */; };
+		4C3873CA1F8FDF45000505F6 /* SafariServices.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4C3873C91F8FDF45000505F6 /* SafariServices.framework */; };
 		4CAA032E1F8CB91F0083141F /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CAA032D1F8CB91F0083141F /* AppDelegate.swift */; };
 		4CAA03301F8CB91F0083141F /* MoviesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CAA032F1F8CB91F0083141F /* MoviesViewController.swift */; };
 		4CAA03331F8CB91F0083141F /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4CAA03311F8CB91F0083141F /* Main.storyboard */; };
@@ -31,6 +35,8 @@
 
 /* Begin PBXFileReference section */
 		1644A040230D2443458F6D2F /* Pods-Movies.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Movies.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Movies/Pods-Movies.debug.xcconfig"; sourceTree = "<group>"; };
+		4C030E551F8FC73400788DAC /* CollectionBaseViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollectionBaseViewController.swift; sourceTree = "<group>"; };
+		4C030E571F8FCC2200788DAC /* VideoGridCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VideoGridCell.swift; sourceTree = "<group>"; };
 		4C21D54B1F8D4AA400C61E54 /* MovieGridCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieGridCell.swift; sourceTree = "<group>"; };
 		4C21D54D1F8D4BE200C61E54 /* MoviesAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoviesAPI.swift; sourceTree = "<group>"; };
 		4C21D54F1F8D4D3500C61E54 /* CoreDataStack.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = CoreDataStack.swift; path = "/Users/maria/dev/Udacity Projects/Movies/Movies/CoreDataStack.swift"; sourceTree = "<absolute>"; };
@@ -39,6 +45,8 @@
 		4C37DC8A1F8EA51A001B0CAF /* MoviesManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoviesManager.swift; sourceTree = "<group>"; };
 		4C37DC8C1F8EAF98001B0CAF /* SettingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
 		4C37DC8E1F8EAFD5001B0CAF /* GridSize.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GridSize.swift; sourceTree = "<group>"; };
+		4C3873C71F8FD342000505F6 /* ImageDownloader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageDownloader.swift; sourceTree = "<group>"; };
+		4C3873C91F8FDF45000505F6 /* SafariServices.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SafariServices.framework; path = System/Library/Frameworks/SafariServices.framework; sourceTree = SDKROOT; };
 		4CAA032A1F8CB91F0083141F /* Movies.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Movies.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		4CAA032D1F8CB91F0083141F /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		4CAA032F1F8CB91F0083141F /* MoviesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoviesViewController.swift; sourceTree = "<group>"; };
@@ -61,6 +69,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4C3873CA1F8FDF45000505F6 /* SafariServices.framework in Frameworks */,
 				F8ECB2B97A4B5F860CC03E79 /* Pods_Movies.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -95,10 +104,12 @@
 				4C21D54F1F8D4D3500C61E54 /* CoreDataStack.swift */,
 				4CAA032D1F8CB91F0083141F /* AppDelegate.swift */,
 				4CAA032F1F8CB91F0083141F /* MoviesViewController.swift */,
+				4C030E551F8FC73400788DAC /* CollectionBaseViewController.swift */,
 				4C37DC8E1F8EAFD5001B0CAF /* GridSize.swift */,
 				4C37DC8A1F8EA51A001B0CAF /* MoviesManager.swift */,
 				4C37DC8C1F8EAF98001B0CAF /* SettingsViewController.swift */,
 				4CAA03311F8CB91F0083141F /* Main.storyboard */,
+				4C030E571F8FCC2200788DAC /* VideoGridCell.swift */,
 				4CAB1F651F8F37C200C8A1F4 /* VideosViewController.swift */,
 				4CAB1F611F8F213A00C8A1F4 /* MovieDetailViewController.swift */,
 				4CF603FC1F8E85BB0092B8E5 /* Constants.swift */,
@@ -109,6 +120,7 @@
 				4CAA03391F8CB91F0083141F /* LaunchScreen.storyboard */,
 				4CAA033C1F8CB91F0083141F /* Info.plist */,
 				4CAA03341F8CB91F0083141F /* Movies.xcdatamodeld */,
+				4C3873C71F8FD342000505F6 /* ImageDownloader.swift */,
 			);
 			path = Movies;
 			sourceTree = "<group>";
@@ -125,6 +137,7 @@
 		EC25995C23002DC61025B288 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				4C3873C91F8FDF45000505F6 /* SafariServices.framework */,
 				8FD9089D0305DE180A8FB2A7 /* Pods_Movies.framework */,
 			);
 			name = Frameworks;
@@ -269,12 +282,15 @@
 				4C21D54C1F8D4AA400C61E54 /* MovieGridCell.swift in Sources */,
 				4CAB1F641F8F2A5300C8A1F4 /* MovieDetail+TMDB.swift in Sources */,
 				4CAB1F621F8F213A00C8A1F4 /* MovieDetailViewController.swift in Sources */,
+				4C3873C81F8FD342000505F6 /* ImageDownloader.swift in Sources */,
 				4C21D54E1F8D4BE200C61E54 /* MoviesAPI.swift in Sources */,
 				4CAA03301F8CB91F0083141F /* MoviesViewController.swift in Sources */,
+				4C030E561F8FC73400788DAC /* CollectionBaseViewController.swift in Sources */,
 				4C37DC8F1F8EAFD5001B0CAF /* GridSize.swift in Sources */,
 				4C21D5501F8D4D3500C61E54 /* CoreDataStack.swift in Sources */,
 				4C37DC891F8E9DC7001B0CAF /* BaseViewController.swift in Sources */,
 				4CAA03361F8CB91F0083141F /* Movies.xcdatamodeld in Sources */,
+				4C030E581F8FCC2200788DAC /* VideoGridCell.swift in Sources */,
 				4CAA032E1F8CB91F0083141F /* AppDelegate.swift in Sources */,
 				4CF603FD1F8E85BB0092B8E5 /* Constants.swift in Sources */,
 			);

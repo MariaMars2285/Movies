@@ -25,4 +25,18 @@ extension Video {
             fatalError("No Entity")
         }
     }
+    
+    func thumbnailURL() -> URL? {
+        if let key = self.key {
+            return URL(string: "https://img.youtube.com/vi/\(key)/0.jpg")
+        }
+        return nil
+    }
+    
+    func youtubeURL() -> URL? {
+        if let key = self.key {
+            return URL(string: "https://www.youtube.com/watch?v=\(key)")
+        }
+        return nil
+    }
 }

@@ -91,38 +91,3 @@ class MoviesAPI {
     }
 }
 
-extension MoviesViewController: NSFetchedResultsControllerDelegate {
-    func controllerWillChangeContent(_ controller: NSFetchedResultsController<NSFetchRequestResult>) {
-        insertedIndexPaths = [IndexPath]()
-        deletedIndexPaths  = [IndexPath]()
-        updatedIndexPaths  = [IndexPath]()
-    }
-    
-    func controller(_ controller: NSFetchedResultsController<NSFetchRequestResult>, didChange anObject: Any, at indexPath: IndexPath?, for type: NSFetchedResultsChangeType, newIndexPath: IndexPath?) {
-        switch type {
-        case .insert:
-            insertedIndexPaths.append(newIndexPath!)
-        case .update:
-            updatedIndexPaths.append(indexPath!)
-        case .delete:
-            deletedIndexPaths.append(indexPath!)
-        default:
-            break
-        }
-    }
-    
-    func controllerDidChangeContent(_ controller: NSFetchedResultsController<NSFetchRequestResult>) {
-        collectionView.performBatchUpdates({
-            for indexPath in self.insertedIndexPaths {
-                self.collectionView.insertItems(at: [indexPath])
-            }
-            for indexPath in self.deletedIndexPaths {
-                self.collectionView.deleteItems(at: [indexPath])
-            }
-            for indexPath in self.updatedIndexPaths {
-                self.collectionView.reloadItems(at: [indexPath])
-            }
-        }, completion: nil)
-    }
-    
-}

@@ -61,11 +61,13 @@ struct Constants {
     // MARK: Entity Names
     struct EntityNames {
         static let Movie = "Movie"
+        static let Video = "Video"
     }
     
     // MARK: Cell Identifiers
     struct CellIdentifiers {
         static let MovieGridCell = "MovieGridCell"
+        static let VideoGridCell = "VideoGridCell"
     }
     
 }
