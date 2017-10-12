@@ -54,4 +54,18 @@ class ImageDownloader {
             })
         }
     }
+    
+    func downloadBackDrop(forMovieDetail detail: MovieDetail, completion: @escaping (Bool) -> Void) {
+        if let backdropURL = detail.backdropURL() {
+            downloadImage(forURL: backdropURL, completion: { (data, error) in
+                if let imgData = data {
+                    detail.backdropData = imgData
+                    self.stack.save()
+                    completion(true)
+                } else {
+                    completion(false)
+                }
+            })
+        }
+    }
 }

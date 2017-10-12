@@ -31,4 +31,26 @@ extension MovieDetail {
         self.imdbID = json[Constants.TMDBResponseKeys.IMDBId].string
         self.overview = json[Constants.TMDBResponseKeys.Overview].string
     }
+    
+    func homepageURL() -> URL? {
+        if let homepage = self.homepage {
+            return URL(string: homepage)
+        }
+        return nil
+    }
+    
+    func imdbURL() -> URL? {
+        if let imdbId = self.imdbID {
+            return URL(string: "http://www.imdb.com/title/\(imdbId)")
+        }
+        return nil
+    }
+    
+    func backdropURL() -> URL? {
+        if let backdrop = self.backdrop {
+            return URL(string: Constants.TMDB.LargeImageURL + backdrop)
+        }
+        return nil
+    }
+    
 }

@@ -12,6 +12,7 @@
     </entity>
     <entity name="MovieDetail" representedClassName="MovieDetail" syncable="YES" codeGenerationType="class">
         <attribute name="backdrop" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="backdropData" optional="YES" attributeType="Binary" allowsExternalBinaryDataStorage="YES" syncable="YES"/>
         <attribute name="hasVideo" optional="YES" attributeType="Boolean" usesScalarValueType="YES" syncable="YES"/>
         <attribute name="homepage" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="imdbID" optional="YES" attributeType="String" syncable="YES"/>
@@ -31,7 +32,7 @@
     </entity>
     <elements>
         <element name="Movie" positionX="-63" positionY="-18" width="128" height="165"/>
-        <element name="MovieDetail" positionX="-63" positionY="27" width="128" height="165"/>
+        <element name="MovieDetail" positionX="-63" positionY="27" width="128" height="180"/>
         <element name="Video" positionX="-45" positionY="81" width="128" height="150"/>
     </elements>
 </model>

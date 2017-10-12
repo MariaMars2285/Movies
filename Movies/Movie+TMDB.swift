@@ -19,6 +19,7 @@ extension Movie {
             self.id = json[Constants.TMDBResponseKeys.ID].int64Value
             self.language = json[Constants.TMDBResponseKeys.Language].string
             self.poster = json[Constants.TMDBResponseKeys.Poster].string
+            
             //self.releaseDate = json[Constants.TMDBResponseKeys.ReleaseDate].
         } else {
             fatalError("No Entity")
