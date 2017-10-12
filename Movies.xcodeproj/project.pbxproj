@@ -21,6 +21,10 @@
 		4CAA03361F8CB91F0083141F /* Movies.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 4CAA03341F8CB91F0083141F /* Movies.xcdatamodeld */; };
 		4CAA03381F8CB91F0083141F /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4CAA03371F8CB91F0083141F /* Assets.xcassets */; };
 		4CAA033B1F8CB91F0083141F /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4CAA03391F8CB91F0083141F /* LaunchScreen.storyboard */; };
+		4CAB1F621F8F213A00C8A1F4 /* MovieDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CAB1F611F8F213A00C8A1F4 /* MovieDetailViewController.swift */; };
+		4CAB1F641F8F2A5300C8A1F4 /* MovieDetail+TMDB.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CAB1F631F8F2A5300C8A1F4 /* MovieDetail+TMDB.swift */; };
+		4CAB1F661F8F37C200C8A1F4 /* VideosViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CAB1F651F8F37C200C8A1F4 /* VideosViewController.swift */; };
+		4CAB1F681F8F419200C8A1F4 /* Video+TMDB.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CAB1F671F8F419100C8A1F4 /* Video+TMDB.swift */; };
 		4CF603FD1F8E85BB0092B8E5 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CF603FC1F8E85BB0092B8E5 /* Constants.swift */; };
 		F8ECB2B97A4B5F860CC03E79 /* Pods_Movies.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8FD9089D0305DE180A8FB2A7 /* Pods_Movies.framework */; };
 /* End PBXBuildFile section */
@@ -43,6 +47,10 @@
 		4CAA03371F8CB91F0083141F /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		4CAA033A1F8CB91F0083141F /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		4CAA033C1F8CB91F0083141F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		4CAB1F611F8F213A00C8A1F4 /* MovieDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieDetailViewController.swift; sourceTree = "<group>"; };
+		4CAB1F631F8F2A5300C8A1F4 /* MovieDetail+TMDB.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "MovieDetail+TMDB.swift"; sourceTree = "<group>"; };
+		4CAB1F651F8F37C200C8A1F4 /* VideosViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VideosViewController.swift; sourceTree = "<group>"; };
+		4CAB1F671F8F419100C8A1F4 /* Video+TMDB.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Video+TMDB.swift"; sourceTree = "<group>"; };
 		4CF603FC1F8E85BB0092B8E5 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		76AB59494B5BA7DFB7C5BE8D /* Pods-Movies.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Movies.release.xcconfig"; path = "Pods/Target Support Files/Pods-Movies/Pods-Movies.release.xcconfig"; sourceTree = "<group>"; };
 		8FD9089D0305DE180A8FB2A7 /* Pods_Movies.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Movies.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -82,13 +90,17 @@
 			isa = PBXGroup;
 			children = (
 				4C21D5511F8D50AC00C61E54 /* Movie+TMDB.swift */,
+				4CAB1F631F8F2A5300C8A1F4 /* MovieDetail+TMDB.swift */,
+				4CAB1F671F8F419100C8A1F4 /* Video+TMDB.swift */,
 				4C21D54F1F8D4D3500C61E54 /* CoreDataStack.swift */,
 				4CAA032D1F8CB91F0083141F /* AppDelegate.swift */,
 				4CAA032F1F8CB91F0083141F /* MoviesViewController.swift */,
 				4C37DC8E1F8EAFD5001B0CAF /* GridSize.swift */,
 				4C37DC8A1F8EA51A001B0CAF /* MoviesManager.swift */,
-				4CAA03311F8CB91F0083141F /* Main.storyboard */,
 				4C37DC8C1F8EAF98001B0CAF /* SettingsViewController.swift */,
+				4CAA03311F8CB91F0083141F /* Main.storyboard */,
+				4CAB1F651F8F37C200C8A1F4 /* VideosViewController.swift */,
+				4CAB1F611F8F213A00C8A1F4 /* MovieDetailViewController.swift */,
 				4CF603FC1F8E85BB0092B8E5 /* Constants.swift */,
 				4C21D54D1F8D4BE200C61E54 /* MoviesAPI.swift */,
 				4C37DC881F8E9DC7001B0CAF /* BaseViewController.swift */,
@@ -249,10 +261,14 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4CAB1F661F8F37C200C8A1F4 /* VideosViewController.swift in Sources */,
 				4C37DC8B1F8EA51A001B0CAF /* MoviesManager.swift in Sources */,
 				4C21D5521F8D50AC00C61E54 /* Movie+TMDB.swift in Sources */,
 				4C37DC8D1F8EAF98001B0CAF /* SettingsViewController.swift in Sources */,
+				4CAB1F681F8F419200C8A1F4 /* Video+TMDB.swift in Sources */,
 				4C21D54C1F8D4AA400C61E54 /* MovieGridCell.swift in Sources */,
+				4CAB1F641F8F2A5300C8A1F4 /* MovieDetail+TMDB.swift in Sources */,
+				4CAB1F621F8F213A00C8A1F4 /* MovieDetailViewController.swift in Sources */,
 				4C21D54E1F8D4BE200C61E54 /* MoviesAPI.swift in Sources */,
 				4CAA03301F8CB91F0083141F /* MoviesViewController.swift in Sources */,
 				4C37DC8F1F8EAFD5001B0CAF /* GridSize.swift in Sources */,

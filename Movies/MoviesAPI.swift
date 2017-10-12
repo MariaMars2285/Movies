@@ -35,6 +35,45 @@ class MoviesAPI {
         }
     }
     
+    func fetchMovieDetails(movie: Movie, completion: @escaping (JSON?, Error?) -> Void) {
+        let params: [String: Any] = [
+            Constants.TMDBParameterKeys.APIKey: Constants.TMDBParameterValues.APIKey,
+            Constants.TMDBParameterKeys.Language: Constants.TMDBParameterValues.Language,
+        ]
+        
+        let url = TMDBURLFromParameters(path: "/3/movie/\(movie.id)", parameters: params as [String: AnyObject])
+        print(url.absoluteString)
+        
+        Alamofire.request(url.absoluteString).response { response in
+            // TODO: Handle Errors
+            if let data = response.data {
+                let json = JSON(data: data)
+                completion(json, nil)
+            }
+        }
+    }
+    
+    func fetchVideos(movie: Movie, completion: @escaping ([JSON]?, Error?) -> Void) {
+        let params: [String: Any] = [
+            Constants.TMDBParameterKeys.APIKey: Constants.TMDBParameterValues.APIKey,
+            Constants.TMDBParameterKeys.Language: Constants.TMDBParameterValues.Language,
+            ]
+        
+        let url = TMDBURLFromParameters(path: "/3/movie/\(movie.id)/videos", parameters: params as [String: AnyObject])
+        print(url.absoluteString)
+        
+        Alamofire.request(url.absoluteString).response { response in
+            // TODO: Handle Errors
+            if let data = response.data {
+                let json = JSON(data: data)
+                if let videosJSON = json[Constants.TMDBResponseKeys.Results].array {
+                    completion(videosJSON, nil)
+                }
+            }
+        }
+    }
+        
+    
     private func TMDBURLFromParameters(path: String, parameters: [String:AnyObject]) -> URL {
         
         var components = URLComponents()

@@ -7,8 +7,30 @@
         <attribute name="posterData" optional="YES" attributeType="Binary" syncable="YES"/>
         <attribute name="releaseDate" optional="YES" attributeType="Date" usesScalarValueType="NO" syncable="YES"/>
         <attribute name="title" attributeType="String" syncable="YES"/>
+        <relationship name="detail" optional="YES" maxCount="1" deletionRule="Cascade" destinationEntity="MovieDetail" inverseName="movie" inverseEntity="MovieDetail" syncable="YES"/>
+        <relationship name="videos" optional="YES" toMany="YES" deletionRule="Cascade" destinationEntity="Video" inverseName="movie" inverseEntity="Video" syncable="YES"/>
+    </entity>
+    <entity name="MovieDetail" representedClassName="MovieDetail" syncable="YES" codeGenerationType="class">
+        <attribute name="backdrop" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="hasVideo" optional="YES" attributeType="Boolean" usesScalarValueType="YES" syncable="YES"/>
+        <attribute name="homepage" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="imdbID" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="overview" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="poster" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="title" optional="YES" attributeType="String" syncable="YES"/>
+        <relationship name="movie" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Movie" inverseName="detail" inverseEntity="Movie" syncable="YES"/>
+    </entity>
+    <entity name="Video" representedClassName="Video" syncable="YES" codeGenerationType="class">
+        <attribute name="id" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="key" attributeType="String" syncable="YES"/>
+        <attribute name="name" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="site" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="type" optional="YES" attributeType="String" syncable="YES"/>
+        <relationship name="movie" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Movie" inverseName="videos" inverseEntity="Movie" syncable="YES"/>
     </entity>
     <elements>
-        <element name="Movie" positionX="-63" positionY="-18" width="128" height="135"/>
+        <element name="Movie" positionX="-63" positionY="-18" width="128" height="165"/>
+        <element name="MovieDetail" positionX="-63" positionY="27" width="128" height="165"/>
+        <element name="Video" positionX="-45" positionY="81" width="128" height="135"/>
     </elements>
 </model>

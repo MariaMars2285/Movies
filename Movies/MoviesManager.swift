@@ -61,5 +61,52 @@ class MoviesManager {
             completion(movies, nil)
         }
     }
+    
+    func fetchMovieDetails(movie: Movie, completion: @escaping (MovieDetail?, Error?) -> Void) {
+        moviesAPI.fetchMovieDetails(movie: movie) { (json, error) in
+            guard error == nil else {
+                completion(nil, error)
+                return
+            }
+            guard let detailsJSON = json else {
+                completion(nil, error)
+                return
+            }
+            
+            if let detail = movie.detail {
+                //Update Movie Detail
+                detail.updateMovieDetails(json: detailsJSON)
+            } else {
+                //Create Movie Detail
+                let detail = MovieDetail(json: detailsJSON, movie: movie, context: self.context)
+                completion(detail, nil)
+            }
+        }
+    }
+    
+    func fetchVideos(movie: Movie, completion: @escaping ([Video]?, Error?) -> Void) {
+        moviesAPI.fetchVideos(movie: movie) { (jsons, error) in
+            guard error == nil else {
+                completion(nil, error)
+                return
+            }
+            guard let videosJSON = jsons else {
+                completion(nil, error)
+                return
+            }
+            if movie.videos != nil && movie.videos!.count > 0 {
+                for video in movie.videos! {
+                    self.context.delete(video as! Video)
+                }
+            }
+            var videos: [Video] = []
+            for json in videosJSON {
+                let video = Video(json: json, movie: movie, context: self.context)
+                videos.append(video)
+            }
+            self.stack.save()
+            completion(videos, nil)
+        }
+    }
 
 }

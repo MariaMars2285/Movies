@@ -19,6 +19,7 @@ class MoviesViewController: BaseViewController {
     }
 
     @IBOutlet weak var collectionView: UICollectionView!
+    
     var refresher:UIRefreshControl!
     private var pageLoaded = 0
     var insertedIndexPaths: [IndexPath]!
@@ -70,6 +71,17 @@ class MoviesViewController: BaseViewController {
             guard error != nil else {
                 //TODO: Show Alert
                 return
+            }
+        }
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "MovieDetail" {
+            let vc = segue.destination as! MovieDetailViewController
+            if let indexPaths = collectionView.indexPathsForSelectedItems, let first = indexPaths.first {
+                let movie = fetchedResultsController.object(at: first)
+                vc.movie = movie
+                collectionView.deselectItem(at: first, animated: true)
             }
         }
     }

@@ -11,15 +11,6 @@ import CoreData
 import SwiftyJSON
 
 extension Movie {
-
-    convenience init(title: String, context: NSManagedObjectContext) {
-        if let ent = NSEntityDescription.entity(forEntityName: "Movie", in: context) {
-            self.init(entity: ent, insertInto: context)
-            self.title = title
-        } else {
-            fatalError("No Entity")
-        }
-    }
     
     convenience init(json: JSON, context: NSManagedObjectContext) {
         if let ent = NSEntityDescription.entity(forEntityName: "Movie", in: context) {
