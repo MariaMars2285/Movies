@@ -43,6 +43,8 @@ class MoviesViewController: CollectionBaseViewController {
         self.refresher.tintColor = UIColor.red
         self.refresher.addTarget(self, action: #selector(fetchFirstPage), for: .valueChanged)
         self.collectionView.addSubview(refresher)
+        self.collectionView.refreshControl = refresher
+        self.collectionView.layoutIfNeeded()
         do {
             try fetchedResultsController.performFetch()
         } catch {
