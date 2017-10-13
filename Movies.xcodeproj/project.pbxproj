@@ -39,8 +39,8 @@
 		4C030E571F8FCC2200788DAC /* VideoGridCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VideoGridCell.swift; sourceTree = "<group>"; };
 		4C21D54B1F8D4AA400C61E54 /* MovieGridCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieGridCell.swift; sourceTree = "<group>"; };
 		4C21D54D1F8D4BE200C61E54 /* MoviesAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoviesAPI.swift; sourceTree = "<group>"; };
-		4C21D54F1F8D4D3500C61E54 /* CoreDataStack.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = CoreDataStack.swift; path = "/Users/maria/dev/Udacity Projects/Movies/Movies/CoreDataStack.swift"; sourceTree = "<absolute>"; };
-		4C21D5511F8D50AC00C61E54 /* Movie+TMDB.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = "Movie+TMDB.swift"; path = "/Users/maria/dev/Udacity Projects/Movies/Movies/Movie+TMDB.swift"; sourceTree = "<absolute>"; };
+		4C21D54F1F8D4D3500C61E54 /* CoreDataStack.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataStack.swift; sourceTree = "<group>"; };
+		4C21D5511F8D50AC00C61E54 /* Movie+TMDB.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Movie+TMDB.swift"; sourceTree = "<group>"; };
 		4C37DC881F8E9DC7001B0CAF /* BaseViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseViewController.swift; sourceTree = "<group>"; };
 		4C37DC8A1F8EA51A001B0CAF /* MoviesManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoviesManager.swift; sourceTree = "<group>"; };
 		4C37DC8C1F8EAF98001B0CAF /* SettingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
