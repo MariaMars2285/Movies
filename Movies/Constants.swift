@@ -52,6 +52,7 @@ struct Constants {
         static let Name = "name"
         static let Site = "site"
         static let VideoType = "type"
+        static let StatusMessage = "status_message"
     }
     
     // MARK: TMDB Response Values

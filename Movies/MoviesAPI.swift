@@ -11,6 +11,38 @@ import CoreData
 import Alamofire
 import SwiftyJSON
 
+enum MoviesAPIError: Error {
+    case noData
+    case network
+    case tmdb(String)
+    
+    var title: String {
+        get {
+            switch(self) {
+            case .noData:
+                return "Server Error"
+            case .network:
+                return "Network Error"
+            case .tmdb(_):
+                return "TMDB Error"
+            }
+        }
+    }
+    
+    var message: String {
+        get {
+            switch(self) {
+            case .noData:
+                return "Server Failed. Please try again later!"
+            case .network:
+                return "Network Error. Please try again later!"
+            case .tmdb(let x):
+                return x
+            }
+        }
+    }
+}
+
 class MoviesAPI {
 
     func fetchMovies(page: Int, completion:@escaping ([JSON]?, Error?) -> Void) {
@@ -22,18 +54,23 @@ class MoviesAPI {
         ]
         
         let url = TMDBURLFromParameters(path: "/3/movie/upcoming", parameters: params as [String: AnyObject])
-        print(url.absoluteString)
         
         Alamofire.request(url.absoluteString).response { response in
             guard response.error == nil else {
-                completion(nil, response.error)
+                completion(nil, MoviesAPIError.network)
                 return
             }
             if let data = response.data {
                 let json = JSON(data: data)
+                if let statusMessage = json[Constants.TMDBResponseKeys.StatusMessage].string {
+                    completion(nil, MoviesAPIError.tmdb(statusMessage))
+                    return
+                }
                 if let moviesJSON = json[Constants.TMDBResponseKeys.Results].array {
                     completion(moviesJSON, nil)
                 }
+            } else {
+                completion(nil, MoviesAPIError.noData)
             }
         }
     }
@@ -45,7 +82,6 @@ class MoviesAPI {
         ]
         
         let url = TMDBURLFromParameters(path: "/3/movie/\(movie.id)", parameters: params as [String: AnyObject])
-        print(url.absoluteString)
         
         Alamofire.request(url.absoluteString).response { response in
             guard response.error == nil else {
@@ -54,7 +90,13 @@ class MoviesAPI {
             }
             if let data = response.data {
                 let json = JSON(data: data)
+                if let statusMessage = json[Constants.TMDBResponseKeys.StatusMessage].string {
+                    completion(nil, MoviesAPIError.tmdb(statusMessage))
+                    return
+                }
                 completion(json, nil)
+            } else {
+                completion(nil, MoviesAPIError.noData)
             }
         }
     }
@@ -66,7 +108,6 @@ class MoviesAPI {
             ]
         
         let url = TMDBURLFromParameters(path: "/3/movie/\(movie.id)/videos", parameters: params as [String: AnyObject])
-        print(url.absoluteString)
         
         Alamofire.request(url.absoluteString).response { response in
             guard response.error == nil else {
@@ -75,9 +116,15 @@ class MoviesAPI {
             }
             if let data = response.data {
                 let json = JSON(data: data)
+                if let statusMessage = json[Constants.TMDBResponseKeys.StatusMessage].string {
+                    completion(nil, MoviesAPIError.tmdb(statusMessage))
+                    return
+                }
                 if let videosJSON = json[Constants.TMDBResponseKeys.Results].array {
                     completion(videosJSON, nil)
                 }
+            } else {
+                completion(nil, MoviesAPIError.noData)
             }
         }
     }

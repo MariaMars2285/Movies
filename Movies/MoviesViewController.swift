@@ -45,7 +45,7 @@ class MoviesViewController: CollectionBaseViewController {
         } catch {
             print("Error")
         }
-        if fetchedResultsController.fetchedObjects == nil {
+        if fetchedResultsController.fetchedObjects == nil || fetchedResultsController.fetchedObjects!.count == 0  {
             self.refresher.beginRefreshing()
         }
         fetchMovies(page: pageLoaded + 1)
@@ -69,7 +69,7 @@ class MoviesViewController: CollectionBaseViewController {
         moviesManager.fetchMovies(page: page) { (movies, error) in
             self.refresher.endRefreshing()
             guard error == nil else {
-                self.showErrorAlert(title: "Error", message: "Unable to fetch Movies Data!")
+                self.alertError(error: error)
                 return
             }
         }
@@ -104,7 +104,6 @@ extension MoviesViewController: UICollectionViewDataSource {
             cell.indicatorView.startAnimating()
             imageDownloader.downloadPoster(forMovie: movie)
         }
-        print("poster \(movie.poster)")
         return cell
     }
 }

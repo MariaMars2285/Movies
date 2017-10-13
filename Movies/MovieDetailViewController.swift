@@ -23,15 +23,18 @@ class MovieDetailViewController: BaseViewController {
     @IBOutlet weak var videosButton: UIButton!
     @IBOutlet weak var imdbButton: UIButton!
     @IBOutlet weak var videoBarButton: UIBarButtonItem!
+    @IBOutlet weak var activityIndicator: UIActivityIndicatorView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
         if movie.detail != nil {
             setDetails()
         } else {
+            self.activityIndicator.startAnimating()
             movieManager.fetchMovieDetails(movie: movie, completion: { (detail, error) in
+                self.activityIndicator.stopAnimating()
                 guard error == nil else {
-                    print("Error")
+                    self.alertError(error: error)
                     return
                 }
                 self.setDetails()

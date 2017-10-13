@@ -53,7 +53,6 @@ class MoviesManager {
                 if movieJSON[Constants.TMDBResponseKeys.ID].int != nil &&
                     movieJSON[Constants.TMDBResponseKeys.Title].string != nil {
                     let movie = Movie(json: movieJSON, context: self.context)
-                    print(movieJSON)
                     movies.append(movie)
                 }
             }

@@ -32,6 +32,15 @@ class BaseViewController: UIViewController {
         present(alert, animated: true, completion: nil)
     }
     
+    func alertError(error: Error?) {
+        if let moviesAPIError = error as? MoviesAPIError {
+            self.showErrorAlert(title: moviesAPIError.title, message: moviesAPIError.message)
+        } else {
+            self.showErrorAlert(title: "Unknown Error", message: "Unknown Error. Please try again!")
+        }
+    }
+    
+    
     func setupNavigationBar() {
         
         self.navigationController?.navigationBar.barTintColor = UIColor.red

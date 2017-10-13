@@ -225,13 +225,20 @@
                                     <constraint firstAttribute="trailing" secondItem="GWC-Bt-4KC" secondAttribute="trailing" id="mCC-2r-WE8"/>
                                 </constraints>
                             </scrollView>
+                            <activityIndicatorView hidden="YES" opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" hidesWhenStopped="YES" style="white" translatesAutoresizingMaskIntoConstraints="NO" id="IKN-9k-naK">
+                                <rect key="frame" x="0.0" y="64" width="375" height="603"/>
+                            </activityIndicatorView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstItem="iq1-Ti-3R2" firstAttribute="leading" secondItem="HVC-1f-JH5" secondAttribute="leading" id="4tj-s0-Lb4"/>
                             <constraint firstItem="iq1-Ti-3R2" firstAttribute="top" secondItem="HVC-1f-JH5" secondAttribute="top" id="Lhg-lQ-7i4"/>
+                            <constraint firstItem="HVC-1f-JH5" firstAttribute="bottom" secondItem="IKN-9k-naK" secondAttribute="bottom" id="RrT-ik-SuR"/>
                             <constraint firstItem="GWC-Bt-4KC" firstAttribute="width" secondItem="V9L-uF-cmI" secondAttribute="width" id="ZP5-Ko-7qr"/>
+                            <constraint firstItem="HVC-1f-JH5" firstAttribute="trailing" secondItem="IKN-9k-naK" secondAttribute="trailing" id="cJX-wJ-7Va"/>
+                            <constraint firstItem="IKN-9k-naK" firstAttribute="top" secondItem="HVC-1f-JH5" secondAttribute="top" id="d4I-N1-K2I"/>
                             <constraint firstItem="HVC-1f-JH5" firstAttribute="trailing" secondItem="iq1-Ti-3R2" secondAttribute="trailing" id="ell-La-uyc"/>
+                            <constraint firstItem="IKN-9k-naK" firstAttribute="leading" secondItem="HVC-1f-JH5" secondAttribute="leading" id="ksV-U4-mna"/>
                             <constraint firstItem="HVC-1f-JH5" firstAttribute="bottom" secondItem="iq1-Ti-3R2" secondAttribute="bottom" id="oLf-4j-Xlb"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="HVC-1f-JH5"/>
@@ -244,6 +251,7 @@
                         </barButtonItem>
                     </navigationItem>
                     <connections>
+                        <outlet property="activityIndicator" destination="IKN-9k-naK" id="vSk-3l-4Wn"/>
                         <outlet property="backdropImageView" destination="FxZ-mV-RyV" id="ZwB-Gp-Xkm"/>
                         <outlet property="homepageButton" destination="26K-fv-goB" id="fbo-iz-bHV"/>
                         <outlet property="imdbButton" destination="wzs-Da-Ocv" id="x6V-Yc-6pj"/>
