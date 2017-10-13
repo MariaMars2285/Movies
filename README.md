@@ -5,16 +5,16 @@ Upcoming Movies App displays 20 upcoming movies from TMDB API. It allows user to
 # Installation Instructions
 - Clone the source code from https://github.com/MariaMars2285/Movies 
 - Open Movies.xcworkspace file in Xcode. Make sure you do not open the xcproject.
-- Get your API key from the www.themoviedb.org link and replace the "APIKey" Parameter value with your API key in Constants.swift file .
 - Now compile and run.
 
 # User Interface
 ### Movies Screen
 - On load the app will display the upcoming 20 movies from TMDB API.
-- On click of settings icon on top right will take you to a page where the user can select Grid Size
+- On click of settings icon on top right will take you to a page where the user can select Grid Size from segmented control.
 - Clicking on the movie image will take user to the Movie Detail Page.
 
 ### Settings Screen
+- Shows a segmented control for Grid Size.
 - Sets the user preference for Grid Size based on User choice.
 - The Selected Grid Size will be used in the Movies Screen. 
 

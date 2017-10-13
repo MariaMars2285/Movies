@@ -48,7 +48,7 @@ class VideosViewController: CollectionBaseViewController {
     // Fetch Videos using the Movie Manager.
     func fetchVideos() {
         moviesManager.fetchVideos(movie: movie) { (_, error) in
-            if error != nil && self.activityIndicator.isAnimating {
+            if error != nil {
                 self.alertError(error: error)
             }
             self.activityIndicator.stopAnimating()

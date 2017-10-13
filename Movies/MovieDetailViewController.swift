@@ -30,7 +30,7 @@ class MovieDetailViewController: BaseViewController {
         if movie.detail != nil {
             setDetails()
         } else {
-            self.activityIndicator.startAnimating()
+            activityIndicator.startAnimating()
             // Fetches the movie details for the selected movie.
             movieManager.fetchMovieDetails(movie: movie, completion: { (detail, error) in
                 self.activityIndicator.stopAnimating()
@@ -66,7 +66,7 @@ class MovieDetailViewController: BaseViewController {
     // Opens the URL in Safari View Controller.
     func openURL(url: URL) {
         let vc = SFSafariViewController(url: url)
-        self.present(vc, animated: true, completion: nil)
+        present(vc, animated: true, completion: nil)
     }
     
     // Sets the values in UI View based on movie details.

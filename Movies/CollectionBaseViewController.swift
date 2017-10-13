@@ -17,10 +17,6 @@ class CollectionBaseViewController: BaseViewController {
     var updatedIndexPaths : [IndexPath]!
     @IBOutlet weak var collectionView: UICollectionView!
 
-    override func viewDidLoad() {
-        super.viewDidLoad()
-    }
-
 }
 
 extension CollectionBaseViewController: NSFetchedResultsControllerDelegate {

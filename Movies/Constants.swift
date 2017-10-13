@@ -8,6 +8,7 @@
 
 
 import Foundation
+import UIKit
 
 // MARK: - Constants
 
@@ -75,6 +76,15 @@ struct Constants {
     // MARK: Keys
     struct Keys {
         static let GridSize = "GridSize"
+    }
+    
+    // MARK: Values
+    struct Values {
+        static let SmallRowItemCountLandscape = 4
+        static let LargeRowItemCountLandscape = 3
+        static let SmallRowItemCountPortrait = 3
+        static let LargeRowItemCountPortrait = 2
+        static let Spacing: CGFloat = 5
     }
     
 }
