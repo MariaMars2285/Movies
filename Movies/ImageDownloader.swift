@@ -18,6 +18,7 @@ class ImageDownloader {
         }
     }
     
+    // Common Image download function. Uses Alamofire to download the image based on URL.
     func downloadImage(forURL url: URL, completion: @escaping (Data?, Error?) -> Void) {
         Alamofire.request(url).responseData { (response) in
             guard response.error == nil else {
@@ -33,6 +34,7 @@ class ImageDownloader {
         }
     }
     
+    // Download thumbnail for the video.
     func downloadThumbnail(forVideo video: Video) {
         if let thumbnailURL = video.thumbnailURL() {
             downloadImage(forURL: thumbnailURL, completion: { (data, error) in
@@ -44,6 +46,7 @@ class ImageDownloader {
         }
     }
     
+    // Download poster for the video.
     func downloadPoster(forMovie movie: Movie) {
         if let posterURL = movie.posterURL() {
             downloadImage(forURL: posterURL, completion: { (data, error) in
@@ -55,6 +58,7 @@ class ImageDownloader {
         }
     }
     
+    // Download backdrop for the video.
     func downloadBackDrop(forMovieDetail detail: MovieDetail, completion: @escaping (Bool) -> Void) {
         if let backdropURL = detail.backdropURL() {
             downloadImage(forURL: backdropURL, completion: { (data, error) in

@@ -11,6 +11,7 @@ import CoreData
 import Alamofire
 import SwiftyJSON
 
+// Generic Movies API Error for the Project.
 enum MoviesAPIError: Error {
     case noData
     case network
@@ -45,6 +46,7 @@ enum MoviesAPIError: Error {
 
 class MoviesAPI {
 
+    // Fetches movies and calls the completion handlers with movies jsons.
     func fetchMovies(page: Int, completion:@escaping ([JSON]?, Error?) -> Void) {
         
         let params: [String: Any] = [
@@ -75,6 +77,7 @@ class MoviesAPI {
         }
     }
     
+    // Fetches movie details for selected movie and calls the completion handlers with detail jsons.
     func fetchMovieDetails(movie: Movie, completion: @escaping (JSON?, Error?) -> Void) {
         let params: [String: Any] = [
             Constants.TMDBParameterKeys.APIKey: Constants.TMDBParameterValues.APIKey,
@@ -101,6 +104,7 @@ class MoviesAPI {
         }
     }
     
+    // Fetches videos for the selected movie and calls the completion handlers with videos jsons.
     func fetchVideos(movie: Movie, completion: @escaping ([JSON]?, Error?) -> Void) {
         let params: [String: Any] = [
             Constants.TMDBParameterKeys.APIKey: Constants.TMDBParameterValues.APIKey,
@@ -129,9 +133,8 @@ class MoviesAPI {
         }
     }
         
-    
+    // Creates TMDB URL based on given parameters and path.
     private func TMDBURLFromParameters(path: String, parameters: [String:AnyObject]) -> URL {
-        
         var components = URLComponents()
         components.scheme = Constants.TMDB.APIScheme
         components.host = Constants.TMDB.APIHost

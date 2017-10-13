@@ -31,6 +31,7 @@ class MovieDetailViewController: BaseViewController {
             setDetails()
         } else {
             self.activityIndicator.startAnimating()
+            // Fetches the movie details for the selected movie.
             movieManager.fetchMovieDetails(movie: movie, completion: { (detail, error) in
                 self.activityIndicator.stopAnimating()
                 guard error == nil else {
@@ -48,7 +49,6 @@ class MovieDetailViewController: BaseViewController {
         } else {
             showErrorAlert(title: "Error", message: "Invalid Home Page URL!.")
         }
-
     }
     
     @IBAction func onVideoClick(_ sender: Any) {
@@ -63,11 +63,13 @@ class MovieDetailViewController: BaseViewController {
         }
     }
     
+    // Opens the URL in Safari View Controller.
     func openURL(url: URL) {
         let vc = SFSafariViewController(url: url)
         self.present(vc, animated: true, completion: nil)
     }
     
+    // Sets the values in UI View based on movie details.
     func setDetails() {
         if let detail = movie.detail {
             titleLabel.text = detail.title
@@ -85,6 +87,7 @@ class MovieDetailViewController: BaseViewController {
         }
     }
     
+    // Fetches the backdrop image using Image Downloader.
     func fetchBackdropImage() {
         imageDownloader.downloadBackDrop(forMovieDetail: movie.detail!) { (success) in
             self.setDetails()

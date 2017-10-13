@@ -9,6 +9,8 @@
 import UIKit
 import CoreData
 
+// BaseViewController with common code for the UIViewControllers.
+
 class BaseViewController: UIViewController {
 
     var context: NSManagedObjectContext {
@@ -32,6 +34,7 @@ class BaseViewController: UIViewController {
         present(alert, animated: true, completion: nil)
     }
     
+    // Alert the user based on Error or shows a generic alert.
     func alertError(error: Error?) {
         if let moviesAPIError = error as? MoviesAPIError {
             self.showErrorAlert(title: moviesAPIError.title, message: moviesAPIError.message)
@@ -40,7 +43,7 @@ class BaseViewController: UIViewController {
         }
     }
     
-    
+    // Set up the Navigation bar same across all the views.
     func setupNavigationBar() {
         
         self.navigationController?.navigationBar.barTintColor = UIColor.red

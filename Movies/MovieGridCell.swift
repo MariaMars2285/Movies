@@ -8,10 +8,14 @@
 
 import UIKit
 
+// UICollectionViewCell for rendering movies.
+
 class MovieGridCell: UICollectionViewCell {
     
     @IBOutlet weak var imageView: UIImageView!
     @IBOutlet weak var indicatorView: UIActivityIndicatorView!
+    
+    // Based on : https://stackoverflow.com/questions/13505379/adding-rounded-corner-and-drop-shadow-to-uicollectionviewcell
     
     override func awakeFromNib() {
         super.awakeFromNib()

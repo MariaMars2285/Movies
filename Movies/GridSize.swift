@@ -8,6 +8,8 @@
 
 import Foundation
 
+//Enum for representing 2 grid sizes.
+
 enum GridSize: Int {
     case large
     case small

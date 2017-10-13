@@ -8,6 +8,7 @@
 
 import UIKit
 
+// Static table view controller to select Grid Size.
 class SettingsViewController: UITableViewController {
     
     var gridSize: GridSize {

@@ -9,6 +9,7 @@
 import UIKit
 import CoreData
 
+//Base View Controller for View Controllers which use FetchedResultsController and Collection View.
 class CollectionBaseViewController: BaseViewController {
     
     var insertedIndexPaths: [IndexPath]!

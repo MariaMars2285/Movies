@@ -8,13 +8,14 @@
 
 import UIKit
 
+// UICollectionViewCell for rendering videos.
 class VideoGridCell: UICollectionViewCell {
     
     @IBOutlet weak var imageView: UIImageView!
     @IBOutlet weak var titleLabel: UILabel!
     @IBOutlet weak var indicatorView: UIActivityIndicatorView!
     
-    //https://stackoverflow.com/questions/13505379/adding-rounded-corner-and-drop-shadow-to-uicollectionviewcell
+    // Based on : https://stackoverflow.com/questions/13505379/adding-rounded-corner-and-drop-shadow-to-uicollectionviewcell
     
     override func awakeFromNib() {
         super.awakeFromNib()

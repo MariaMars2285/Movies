@@ -25,6 +25,7 @@ class MoviesManager {
     
     let moviesAPI = MoviesAPI()
     
+    // Fetches movies from Movies API and creates Core data objects from JSON.
     func fetchMovies(page: Int, completion:@escaping ([Movie]?, Error?) -> Void) {
         moviesAPI.fetchMovies(page: page) { (jsons, error) in
             guard error == nil else {
@@ -61,6 +62,7 @@ class MoviesManager {
         }
     }
     
+    // Fetches movie details from Movies API and creates/updates movie details in Core Data.
     func fetchMovieDetails(movie: Movie, completion: @escaping (MovieDetail?, Error?) -> Void) {
         moviesAPI.fetchMovieDetails(movie: movie) { (json, error) in
             guard error == nil else {
@@ -83,6 +85,7 @@ class MoviesManager {
         }
     }
     
+    // Fetches videos from Movies API and creates Core data objects from JSON.
     func fetchVideos(movie: Movie, completion: @escaping ([Video]?, Error?) -> Void) {
         moviesAPI.fetchVideos(movie: movie) { (jsons, error) in
             guard error == nil else {

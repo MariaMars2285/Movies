@@ -12,6 +12,7 @@ import SwiftyJSON
 
 extension MovieDetail {
     
+    // Convenience initializer for initializing movie detail from the JSON.
     convenience init(json: JSON, movie: Movie, context: NSManagedObjectContext) {
         if let ent = NSEntityDescription.entity(forEntityName: "MovieDetail", in: context) {
             self.init(entity: ent, insertInto: context)
@@ -22,6 +23,7 @@ extension MovieDetail {
         }
     }
     
+    // Updates the movie details from the JSON.
     func updateMovieDetails(json: JSON) {
         self.title = json[Constants.TMDBResponseKeys.Title].stringValue
         self.poster = json[Constants.TMDBResponseKeys.Poster].string

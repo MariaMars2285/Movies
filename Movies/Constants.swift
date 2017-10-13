@@ -11,6 +11,7 @@ import Foundation
 
 // MARK: - Constants
 
+// Constants used in the project.
 struct Constants {
     
     // MARK: TMDB

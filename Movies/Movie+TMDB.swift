@@ -12,6 +12,7 @@ import SwiftyJSON
 
 extension Movie {
     
+    // Convenience initializer for initializing movie from the JSON.
     convenience init(json: JSON, context: NSManagedObjectContext) {
         if let ent = NSEntityDescription.entity(forEntityName: "Movie", in: context) {
             self.init(entity: ent, insertInto: context)

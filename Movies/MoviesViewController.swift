@@ -11,6 +11,7 @@ import CoreData
 
 class MoviesViewController: CollectionBaseViewController {
     
+    // Grid Size based on value from setting.
     var gridSize: GridSize {
         get {
             let value = UserDefaults.standard.integer(forKey: "GridSize")
@@ -18,12 +19,13 @@ class MoviesViewController: CollectionBaseViewController {
         }
     }
 
-    var refresher:UIRefreshControl!
+    var refresher: UIRefreshControl!
     private var pageLoaded = 0
     
     var moviesManager = MoviesManager()
     var imageDownloader = ImageDownloader()
     
+    // Lazy initialization of FetchedResultsController to fetch movies from Core Data.
     lazy var fetchedResultsController: NSFetchedResultsController = { () -> NSFetchedResultsController<Movie> in
         let fetchRequest = NSFetchRequest<Movie>(entityName: Constants.EntityNames.Movie)
         fetchRequest.sortDescriptors = []
@@ -35,6 +37,7 @@ class MoviesViewController: CollectionBaseViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         setupNavigationBar()
+        // Setting up pull to refresh for collection view.
         self.refresher = UIRefreshControl()
         self.collectionView!.alwaysBounceVertical = true
         self.refresher.tintColor = UIColor.red
@@ -60,11 +63,13 @@ class MoviesViewController: CollectionBaseViewController {
         self.collectionView.reloadData()
     }
     
+    // Fetch first page on full to refresh.
     @objc func fetchFirstPage() {
         self.refresher.beginRefreshing()
         fetchMovies(page: 1)
     }
     
+    // Fetch movies from TMDB.
     func fetchMovies(page: Int) {
         moviesManager.fetchMovies(page: page) { (movies, error) in
             self.refresher.endRefreshing()
@@ -85,7 +90,6 @@ class MoviesViewController: CollectionBaseViewController {
             }
         }
     }
-
 }
 
 extension MoviesViewController: UICollectionViewDataSource {
@@ -110,6 +114,7 @@ extension MoviesViewController: UICollectionViewDataSource {
 
 extension MoviesViewController: UICollectionViewDelegateFlowLayout {
     
+    // Returns size of grid item based on user settings.
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         let spacing: CGFloat = 5.0
         if UIDevice.current.orientation == .landscapeLeft || UIDevice.current.orientation == .landscapeRight {
@@ -129,9 +134,7 @@ extension MoviesViewController: UICollectionViewDelegateFlowLayout {
                 return CGSize(width: width, height: width * 3.0 / 2)
             }
         }
-       
     }
-    
 }
 
 

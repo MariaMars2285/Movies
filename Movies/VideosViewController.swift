@@ -18,6 +18,7 @@ class VideosViewController: CollectionBaseViewController {
     
     @IBOutlet weak var activityIndicator: UIActivityIndicatorView!
     
+    // Lazy initialization of FetchedResultsController to fetch videos for the selected movie from Core Data.
     lazy var fetchedResultsController: NSFetchedResultsController = { () -> NSFetchedResultsController<Video> in
         let fetchRequest = NSFetchRequest<Video>(entityName: Constants.EntityNames.Video)
         fetchRequest.predicate = NSPredicate(format: "movie == %@", movie)
@@ -44,6 +45,7 @@ class VideosViewController: CollectionBaseViewController {
         collectionView.reloadData()
     }
     
+    // Fetch Videos using the Movie Manager.
     func fetchVideos() {
         moviesManager.fetchVideos(movie: movie) { (_, error) in
             if error != nil && self.activityIndicator.isAnimating {
@@ -77,6 +79,7 @@ extension VideosViewController: UICollectionViewDataSource {
 
 extension VideosViewController: UICollectionViewDelegateFlowLayout {
     
+    // Returns size of grid item by subtracting the space from width and dividing by number of items per row.
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         if UIDevice.current.orientation == .landscapeLeft || UIDevice.current.orientation == .landscapeRight {
             let width = (collectionView.bounds.width - 20) / 3
@@ -92,6 +95,7 @@ extension VideosViewController: UICollectionViewDelegateFlowLayout {
 }
 
 extension VideosViewController: UICollectionViewDelegate {
+    // Opens the youtube URL in a Safari View Controller.
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         collectionView.deselectItem(at: indexPath, animated: true)
         let video = fetchedResultsController.object(at: indexPath)
