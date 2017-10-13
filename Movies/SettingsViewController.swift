@@ -13,14 +13,13 @@ class SettingsViewController: UITableViewController {
     
     var gridSize: GridSize {
         get {
-            let value = UserDefaults.standard.integer(forKey: "GridSize")
+            let value = UserDefaults.standard.integer(forKey: Constants.Keys.GridSize)
             return GridSize(rawValue: value)!
         }
     }
     
-    @IBOutlet weak var smallGridTableViewCell: UITableViewCell!
-    @IBOutlet weak var largeGridTableViewCell: UITableViewCell!
-
+    @IBOutlet weak var segmentedControl: UISegmentedControl!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         self.navigationController?.navigationBar.barTintColor = UIColor.red
@@ -31,21 +30,13 @@ class SettingsViewController: UITableViewController {
         self.navigationController?.navigationBar.isTranslucent = false
         updateState()
     }
-
-    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        tableView.deselectRow(at: indexPath, animated: true)
-        UserDefaults.standard.set(indexPath.row, forKey: "GridSize")
-        updateState()
-    }
     
+    @IBAction func onValueChange(_ sender: Any) {
+        UserDefaults.standard.set(segmentedControl.selectedSegmentIndex, forKey: Constants.Keys.GridSize)
+    }
+
     func updateState() {
-        if gridSize == .large {
-            largeGridTableViewCell.accessoryType = .checkmark
-            smallGridTableViewCell.accessoryType = .none
-        } else {
-            smallGridTableViewCell.accessoryType = .checkmark
-            largeGridTableViewCell.accessoryType = .none
-        }
+        segmentedControl.selectedSegmentIndex = gridSize.rawValue
     }
     
     @IBAction func onClose(sender: UIBarButtonItem!) {

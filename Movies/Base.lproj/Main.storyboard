@@ -375,38 +375,44 @@
                         <sections>
                             <tableViewSection headerTitle="Grid Size" id="g4F-tY-vcd">
                                 <cells>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" textLabel="h3W-j5-NQJ" style="IBUITableViewCellStyleDefault" id="fgP-6z-V2I">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" id="1IY-OF-0Qf">
                                         <rect key="frame" x="0.0" y="55.5" width="375" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
-                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="fgP-6z-V2I" id="Q3y-QX-2Fm">
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="1IY-OF-0Qf" id="pdC-da-k2y">
                                             <rect key="frame" x="0.0" y="0.0" width="375" height="43.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" insetsLayoutMarginsFromSafeArea="NO" text="Large" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="h3W-j5-NQJ">
-                                                    <rect key="frame" x="16" y="0.0" width="344" height="43.5"/>
-                                                    <autoresizingMask key="autoresizingMask"/>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="2A6-t4-Cgo">
+                                                    <rect key="frame" x="242" y="6" width="121" height="31"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="height" constant="30" id="HtV-9v-sWu"/>
+                                                        <constraint firstAttribute="width" constant="121" id="sbF-dt-b4b"/>
+                                                    </constraints>
+                                                    <segments>
+                                                        <segment title="Large"/>
+                                                        <segment title="Small"/>
+                                                    </segments>
+                                                    <connections>
+                                                        <action selector="onValueChange:" destination="cWg-91-Yt8" eventType="valueChanged" id="8UM-3U-dmq"/>
+                                                    </connections>
+                                                </segmentedControl>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Grid Size" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="VHe-Ix-oQj">
+                                                    <rect key="frame" x="12" y="11.5" width="100" height="20"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="width" constant="100" id="uW7-nJ-I8O"/>
+                                                        <constraint firstAttribute="height" constant="20" id="wJy-gX-Tne"/>
+                                                    </constraints>
+                                                    <fontDescription key="fontDescription" name="AvenirNext-Medium" family="Avenir Next" pointSize="16"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                             </subviews>
-                                        </tableViewCellContentView>
-                                    </tableViewCell>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" textLabel="Cxf-WX-Drg" style="IBUITableViewCellStyleDefault" id="iZb-Bl-F6K">
-                                        <rect key="frame" x="0.0" y="99.5" width="375" height="44"/>
-                                        <autoresizingMask key="autoresizingMask"/>
-                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="iZb-Bl-F6K" id="0Ex-H4-HyB">
-                                            <rect key="frame" x="0.0" y="0.0" width="375" height="43.5"/>
-                                            <autoresizingMask key="autoresizingMask"/>
-                                            <subviews>
-                                                <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" insetsLayoutMarginsFromSafeArea="NO" text="Small" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="Cxf-WX-Drg">
-                                                    <rect key="frame" x="16" y="0.0" width="344" height="43.5"/>
-                                                    <autoresizingMask key="autoresizingMask"/>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                                    <nil key="textColor"/>
-                                                    <nil key="highlightedColor"/>
-                                                </label>
-                                            </subviews>
+                                            <constraints>
+                                                <constraint firstItem="VHe-Ix-oQj" firstAttribute="leading" secondItem="pdC-da-k2y" secondAttribute="leading" constant="12" id="DgM-XL-Qxa"/>
+                                                <constraint firstItem="VHe-Ix-oQj" firstAttribute="centerY" secondItem="pdC-da-k2y" secondAttribute="centerY" id="GlM-hk-0jZ"/>
+                                                <constraint firstAttribute="trailing" secondItem="2A6-t4-Cgo" secondAttribute="trailing" constant="12" id="Lws-SM-2BC"/>
+                                                <constraint firstItem="2A6-t4-Cgo" firstAttribute="centerY" secondItem="pdC-da-k2y" secondAttribute="centerY" id="S0F-oV-wKH"/>
+                                            </constraints>
                                         </tableViewCellContentView>
                                     </tableViewCell>
                                 </cells>
@@ -425,8 +431,7 @@
                         </barButtonItem>
                     </navigationItem>
                     <connections>
-                        <outlet property="largeGridTableViewCell" destination="fgP-6z-V2I" id="qKy-fb-i3d"/>
-                        <outlet property="smallGridTableViewCell" destination="iZb-Bl-F6K" id="JdJ-hk-wVx"/>
+                        <outlet property="segmentedControl" destination="2A6-t4-Cgo" id="ckR-eJ-au1"/>
                     </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="xoC-a3-chZ" userLabel="First Responder" sceneMemberID="firstResponder"/>

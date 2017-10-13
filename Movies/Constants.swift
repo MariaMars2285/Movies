@@ -32,7 +32,7 @@ struct Constants {
     
     // MARK: TMDB Parameter Values
     struct TMDBParameterValues {
-        static let APIKey = "YOUR_API_KEY_HERE"
+        static let APIKey = "398ed3a6d48c3b29837e0228a45fa392"
         static let Language = "en-US"
     }
     
@@ -70,6 +70,11 @@ struct Constants {
     struct CellIdentifiers {
         static let MovieGridCell = "MovieGridCell"
         static let VideoGridCell = "VideoGridCell"
+    }
+    
+    // MARK: Keys
+    struct Keys {
+        static let GridSize = "GridSize"
     }
     
 }

@@ -14,7 +14,7 @@ class MoviesViewController: CollectionBaseViewController {
     // Grid Size based on value from setting.
     var gridSize: GridSize {
         get {
-            let value = UserDefaults.standard.integer(forKey: "GridSize")
+            let value = UserDefaults.standard.integer(forKey: Constants.Keys.GridSize)
             return GridSize(rawValue: value)!
         }
     }
